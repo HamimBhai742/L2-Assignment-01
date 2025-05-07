@@ -67,7 +67,6 @@ function getDayType(day: Day): string {
   return day === Day.Saturday || day === Day.Sunday ? "Weekend" : "Weekday";
 }
 
-// console.log(getDayType(Day.Thursday));
 async function squareAsync(n: number): Promise<Number> {
   return new Promise((resolve, reject) => {
     if (n >= 0) {
