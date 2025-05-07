@@ -1,4 +1,45 @@
 
+# What is the use of the keyof keyword in TypeScript? Provide an example.
+
+# Understanding the keyof Keyword in TypeScript (With Example)
+
+TypeScript is a powerful superset of JavaScript that brings type safety and advanced tooling to the language we all love. One of its lesser-known but incredibly useful features is the keyof keyword. If you've ever wanted to build more flexible, type-safe, and scalable applications, understanding keyof is a must.
+
+##  What is keyof in TypeScript?
+The keyof keyword is a TypeScript operator used to extract the keys of a given object type as a union of string literal types.
+#### It tells TypeScript, “Give me all the property names of this type.”
+
+###  Why Use keyof?
+- ####  Enforces type safety while accessing properties dynamically
+- #### Helps prevent bugs when working with key-value pairs
+- ####  Essential for building generic utility functions
+- ####  Works seamlessly with mapped types and generics
+
+### Example: 
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+type UserKeys = keyof User; // 'id' | 'name' | 'email'
+
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+
+  return obj[key];
+}
+
+const user: User = {
+  id: 1,
+  name: "Hamim",
+  email: "hamim@gmail.com",
+};
+
+const userName = getProperty(user, "name"); //  OK
+
+const userAge = getProperty(user, "age");   //  Error '.
+
+
 # Provide an example of using union and intersection types in TypeScript.
 
 # Union and Intersection Types in TypeScript - With Examples
